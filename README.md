@@ -1,1 +1,1 @@
-# Taller React
+# Workshop React using babel

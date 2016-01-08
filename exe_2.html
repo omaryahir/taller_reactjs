@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exe 2 - React.js</title>
+        <script src="https://fb.me/react-0.14.3.js"></script>
+        <script src="https://fb.me/react-dom-0.14.3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    </head>
+    <body>
+
+        <section id="container"></section>
+
+        <script type="text/babel">
+            class HelloWorldComponent extends React.Component
+            {
+                render()
+                {
+                    return <h1>{this.props.name} evoluaciona en {this.props.level}</h1>
+                }
+            }
+            HelloWorldComponent.propTypes = {
+                name: React.PropTypes.string,
+                level: React.PropTypes.number
+            };
+
+            ReactDOM.render(<HelloWorldComponent name="Reactjs" level={25} />, document.getElementById('container'));
+
+        </script> 
+    </body>
+</html>

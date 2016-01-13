@@ -9,16 +9,14 @@
     <body>
 
         <section id="container"></section>
-        <div id="example"></div>
-
 
         <script type="text/babel">
 
             var gokus = [
-                { number:1, name: 'Saiyan 1' },
-                { number:2, name: 'Saiyan 2' },
-                { number:3, name: 'Saiyan 3' },
-                { number:4, name: 'Saiyan 4' },
+                { number:1, name: 'Super Saiyan 1' },
+                { number:2, name: 'Super Saiyan 2' },
+                { number:3, name: 'Super Saiyan 3' },
+                { number:4, name: 'Super Saiyan 4' },
             ];
 
             class GokuRow extends React.Component
@@ -26,14 +24,16 @@
                 render()
                 {
                     var url = `http://www.myfavoritegames.com/dragonball-z/Images/Transformations/Saiyans/SuperSaiyan${this.props.number}.jpg`;
+                    var font_face = `Arial`;
                     return <div>
                         <img src={url} />
-                        {this.props.name}
+                        <br /><br />
+                        <b>{this.props.name}</b>
                     </div>;
                 }
             };
 
-            var goku = gokus[0];
+            var goku = gokus[3];
             ReactDOM.render(
                 <GokuRow name={goku.name} number={goku.number} />, 
                 document.getElementById('container')

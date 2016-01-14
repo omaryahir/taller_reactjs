@@ -2,6 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Exe 2 - React.js</title>
+        <link rel="stylesheet" type="text/css" href="estilos_exe_04.css">
         <script src="https://fb.me/react-0.14.3.js"></script>
         <script src="https://fb.me/react-dom-0.14.3.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
@@ -19,21 +20,29 @@
                 { number:4, name: 'Super Saiyan 4' },
             ];
 
+            class GokuPicture extends React.Component{
+                render () 
+                {
+                    var url = `http://www.myfavoritegames.com/dragonball-z/Images/Transformations/Saiyans/SuperSaiyan${this.props.number}.jpg`;
+                    return <img src={url} className="goku_picture" />;
+                }
+            }
+
+
+
             class GokuRow extends React.Component
             {
                 render()
                 {
-                    var url = `http://www.myfavoritegames.com/dragonball-z/Images/Transformations/Saiyans/SuperSaiyan${this.props.number}.jpg`;
                     var font_face = `Arial`;
-                    return <div>
-                        <img src={url} />
-                        <br /><br />
+                    return <div className='goku_row'>
+                        <GokuPicture number={this.props.number} />
                         <b>{this.props.name}</b>
-                    </div>;
+                     </div>;
                 }
             };
 
-            var goku = gokus[3];
+        var goku = gokus[2];
             ReactDOM.render(
                 <GokuRow name={goku.name} number={goku.number} />, 
                 document.getElementById('container')

@@ -1,0 +1,13 @@
+.goku_row 
+{
+    margin: 6px 0;
+    font-family: "Arial";
+}
+
+
+.goku_picture
+{
+    width: 50px;
+    margin-right: 12px;
+    display: inline-block;
+}

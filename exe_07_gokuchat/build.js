@@ -103,12 +103,17 @@ var GokuRow = function (_React$Component) {
     }
 
     _createClass(GokuRow, [{
+        key: 'onClick',
+        value: function onClick(ev) {
+            alert(this.props.name);
+        }
+    }, {
         key: 'render',
         value: function render() {
             var font_face = 'Arial';
             return _react2.default.createElement(
                 'li',
-                { className: 'goku_row' },
+                { className: 'goku_row', onClick: this.onClick.bind(this) },
                 _react2.default.createElement(_GokuPicture2.default, { number: this.props.number }),
                 _react2.default.createElement(
                     'b',

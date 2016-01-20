@@ -9,4 +9,3 @@ exe_06
 exe_07
 - exe_07_gokuchat/npm install
 - exe_07_gokuchat/npm run build
-

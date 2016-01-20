@@ -12,11 +12,12 @@
     "express": "~4.13.3",
     "socket.io-client": "~1.4.4",
     "socket.io": "~1.4.4",
-    "babel-cli": "~6.4.5"
+    "babel-cli": "~6.4.5",
+    "react-addons-css-transition-group": "~0.14.6"
   },
-  "babel":{
+  "babel": {
     "presets": [
-        "es2015"
+      "es2015"
     ]
   },
   "scripts": {

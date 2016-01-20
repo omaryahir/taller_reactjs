@@ -14,6 +14,13 @@ export default class GokuApp extends React.Component
         super(props);
         this.state = { messages: [] };
         this.onGrowl = this.onGrowl.bind(this);
+
+        this.gokus = [
+            { number:1, name: 'Super Saiyan 1' },
+            { number:2, name: 'Super Saiyan 2' },
+            { number:3, name: 'Super Saiyan 3' },
+            { number:4, name: 'Super Saiyan 4' },
+        ];
     }
 
     onGrowl(name)
@@ -27,15 +34,8 @@ export default class GokuApp extends React.Component
 
     render () 
     {
-        let gokus = [
-            { number:1, name: 'Super Saiyan 1' },
-            { number:2, name: 'Super Saiyan 2' },
-            { number:3, name: 'Super Saiyan 3' },
-            { number:4, name: 'Super Saiyan 4' },
-        ];
-
         return <div className="gokuapp">
-            <GokuTable gokurows={gokus} onGrowl={ this.onGrowl } />
+            <GokuTable gokurows={this.gokus} onGrowl={ this.onGrowl } />
             <GokuChat messages={this.state.messages} />
         </div>
     }

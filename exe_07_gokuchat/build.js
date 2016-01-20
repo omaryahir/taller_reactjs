@@ -63,7 +63,9 @@ var GokuApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GokuApp).call(this, props));
 
         _this.state = { messages: [] };
-        _this.onGrowl = _this.onGrowl.bind(_this);
+        //this.onGrowl = this.onGrowl.bind(this);
+
+        _this.gokus = [{ number: 1, name: 'Super Saiyan 1' }, { number: 2, name: 'Super Saiyan 2' }, { number: 3, name: 'Super Saiyan 3' }, { number: 4, name: 'Super Saiyan 4' }];
         return _this;
     }
 
@@ -79,12 +81,10 @@ var GokuApp = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var gokus = [{ number: 1, name: 'Super Saiyan 1' }, { number: 2, name: 'Super Saiyan 2' }, { number: 3, name: 'Super Saiyan 3' }, { number: 4, name: 'Super Saiyan 4' }];
-
             return _react2.default.createElement(
                 'div',
                 { className: 'gokuapp' },
-                _react2.default.createElement(_GokuTable2.default, { gokurows: gokus, onGrowl: this.onGrowl }),
+                _react2.default.createElement(_GokuTable2.default, { gokurows: this.gokus, onGrowl: this.onGrowl }),
                 _react2.default.createElement(_GokuChat2.default, { messages: this.state.messages })
             );
         }
@@ -283,7 +283,7 @@ var GokuRow = function (_React$Component) {
     _createClass(GokuRow, [{
         key: 'onClick',
         value: function onClick(ev) {
-            this.props.growl.call(null, this.props.name);
+            this.props.growl(this.props.name);
         }
     }, {
         key: 'render',

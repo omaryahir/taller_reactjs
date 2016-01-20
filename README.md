@@ -1,6 +1,6 @@
 # Workshop React using babel
 
-VID: 20 -- TIM: 0
+VID: 23 -- TIM: 0
 
 exe_06
 - exe_06_order_files/npm install

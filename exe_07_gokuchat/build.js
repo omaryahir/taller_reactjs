@@ -40,6 +40,10 @@ var _GokuChat = require('./GokuChat');
 
 var _GokuChat2 = _interopRequireDefault(_GokuChat);
 
+var _uid = require('uid');
+
+var _uid2 = _interopRequireDefault(_uid);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67,7 +71,8 @@ var GokuApp = function (_React$Component) {
         key: 'onGrowl',
         value: function onGrowl(name) {
             var text = name + ', ' + name + '!';
-            this.state.messages.push({ text: text });
+            var message = { id: (0, _uid2.default)(), text: text };
+            this.state.messages.push(message);
             var messages = this.state.messages;
             this.setState({ messages: messages });
         }
@@ -90,7 +95,7 @@ var GokuApp = function (_React$Component) {
 
 exports.default = GokuApp;
 
-},{"./GokuChat":3,"./GokuTable":7,"react":165}],3:[function(require,module,exports){
+},{"./GokuChat":3,"./GokuTable":7,"react":165,"uid":166}],3:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -133,7 +138,7 @@ var GokuChat = function (_React$Component) {
                 'ul',
                 { className: 'gokuchat' },
                 this.props.messages.map(function (message) {
-                    return _react2.default.createElement(_GokuMessage2.default, { message: message });
+                    return _react2.default.createElement(_GokuMessage2.default, { key: message.id, message: message });
                 })
             );
         }
@@ -19389,4 +19394,23 @@ module.exports = warning;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":33}]},{},[1]);
+},{"./lib/React":33}],166:[function(require,module,exports){
+/**
+ * Export `uid`
+ */
+
+module.exports = uid;
+
+/**
+ * Create a `uid`
+ *
+ * @param {String} len
+ * @return {String} uid
+ */
+
+function uid(len) {
+  len = len || 7;
+  return Math.random().toString(35).substr(2, len);
+}
+
+},{}]},{},[1]);

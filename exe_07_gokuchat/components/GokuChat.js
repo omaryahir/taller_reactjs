@@ -13,7 +13,7 @@ export default class GokuChat extends React.Component
             {
                 this.props.messages.map((message) => 
                 {
-                    return <GokuMessage message={message} />
+                    return <GokuMessage key={message.id} message={message} />
                 })
             }
         </ul>

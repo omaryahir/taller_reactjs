@@ -5,6 +5,7 @@
 import React from 'react';
 import GokuTable from './GokuTable';
 import GokuChat from './GokuChat';
+import uid from 'uid';
 
 export default class GokuApp extends React.Component
 {
@@ -18,7 +19,8 @@ export default class GokuApp extends React.Component
     onGrowl(name)
     {
         let text = `${name}, ${name}!`;
-        this.state.messages.push({ text: text  });
+        let message = {id: uid(), text: text };
+        this.state.messages.push(message);
         let messages = this.state.messages;
         this.setState({ messages: messages });
     }

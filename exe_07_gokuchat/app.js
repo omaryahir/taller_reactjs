@@ -4,13 +4,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GokuTable from './components/GokuTable';
+import GokuApp from './components/GokuApp';
 
-var gokus = [
-    { number:1, name: 'Super Saiyan 1' },
-    { number:2, name: 'Super Saiyan 2' },
-    { number:3, name: 'Super Saiyan 3' },
-    { number:4, name: 'Super Saiyan 4' },
-];
-
-ReactDOM.render(<GokuTable gokurows={gokus} />, document.getElementById('container'));
+ReactDOM.render(<GokuApp />, document.getElementById('container'));

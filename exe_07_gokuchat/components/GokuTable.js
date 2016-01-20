@@ -12,7 +12,11 @@ export default class GokuTable extends React.Component
         return <ul className="goku_table">
             {
                 this.props.gokurows.map((gokurow) => {
-                    return <GokuRow key={gokurow.number} name={gokurow.name} number={gokurow.number} />
+                    return <GokuRow 
+                        key={gokurow.number} 
+                        name={gokurow.name} 
+                        number={gokurow.number} 
+                        growl={this.props.onGrowl} />
                 })
             }
         </ul>;

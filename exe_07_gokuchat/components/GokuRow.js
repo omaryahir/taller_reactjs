@@ -10,7 +10,7 @@ export default class GokuRow extends React.Component
 
     onClick(ev)
     {
-       alert(this.props.name);
+       this.props.growl.call(null, this.props.name);
     }
 
     render()

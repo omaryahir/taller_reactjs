@@ -235,7 +235,11 @@ var GokuPicture = function (_React$Component) {
         key: "render",
         value: function render() {
             var url = "http://www.myfavoritegames.com/dragonball-z/Images/Transformations/Saiyans/SuperSaiyan" + this.props.number + ".jpg";
-            return _react2.default.createElement("img", { src: url, className: "goku_picture" });
+            return _react2.default.createElement(
+                "div",
+                { className: "avatar-container" },
+                _react2.default.createElement("img", { src: url, className: "avatar" })
+            );
         }
     }]);
 
@@ -291,7 +295,7 @@ var GokuRow = function (_React$Component) {
             var font_face = 'Arial';
             return _react2.default.createElement(
                 'li',
-                { className: 'goku_row', onClick: this.onClick.bind(this) },
+                { className: 'gokurow', onClick: this.onClick.bind(this) },
                 _react2.default.createElement(_GokuPicture2.default, { number: this.props.number }),
                 _react2.default.createElement(
                     'b',
@@ -351,7 +355,7 @@ var GokuTable = function (_React$Component) {
 
             return _react2.default.createElement(
                 'ul',
-                { className: 'goku_table' },
+                { className: 'gokutable' },
                 this.props.gokurows.map(function (gokurow) {
                     return _react2.default.createElement(_GokuRow2.default, {
                         key: gokurow.number,

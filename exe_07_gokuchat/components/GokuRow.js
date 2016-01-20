@@ -16,7 +16,7 @@ export default class GokuRow extends React.Component
     render()
     {
         var font_face = `Arial`;
-        return <li className='goku_row' onClick={this.onClick.bind(this)}>
+        return <li className='gokurow' onClick={this.onClick.bind(this)}>
             <GokuPicture number={this.props.number} />
             <b>{this.props.name}</b>
          </li>;

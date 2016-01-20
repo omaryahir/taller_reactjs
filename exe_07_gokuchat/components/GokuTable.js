@@ -9,7 +9,7 @@ export default class GokuTable extends React.Component
 {
     render ()
     {
-        return <ul className="goku_table">
+        return <ul className="gokutable">
             {
                 this.props.gokurows.map((gokurow) => {
                     return <GokuRow 

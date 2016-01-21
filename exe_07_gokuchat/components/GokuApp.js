@@ -6,27 +6,44 @@ import React from 'react';
 import GokuTable from './GokuTable';
 import GokuChat from './GokuChat';
 import uid from 'uid';
+import $ from 'jquery';
+import io from 'socket.io-client';
 
 export default class GokuApp extends React.Component
 {
     constructor(props) 
     {
         super(props);
-        this.state = { messages: [] };
+        this.state = { messages: [], gokus: [] };
         this.onGrowl = this.onGrowl.bind(this);
+        this.user = uid(10);
+    }
 
-        this.gokus = [
-            { number:1, name: 'Super Saiyan 1' },
-            { number:2, name: 'Super Saiyan 2' },
-            { number:3, name: 'Super Saiyan 3' },
-            { number:4, name: 'Super Saiyan 4' },
-        ];
+    componentWillMount()
+    {
+       $.get('/gokus', (gokus) => {
+        this.setState({ gokus: gokus });
+       });
+       this.socket = io('http://192.168.1.51:3000/');
+       this.socket.on('message', (message) => 
+       {
+         if(message.user !== this.user) 
+         {
+            this.newMessage(message);
+         }
+       });
     }
 
     onGrowl(name)
     {
         let text = `${name}, ${name}!`;
-        let message = {id: uid(), text: text };
+        let message = {id: uid(), text: text, user: this.user };
+        this.newMessage(message);
+        this.socket.emit('message', message);
+    }
+
+    newMessage(message)
+    {
         this.state.messages.push(message);
         let messages = this.state.messages;
         this.setState({ messages: messages });
@@ -34,9 +51,13 @@ export default class GokuApp extends React.Component
 
     render () 
     {
-        return <div className="gokuapp">
-            <GokuTable gokurows={this.gokus} onGrowl={ this.onGrowl } />
-            <GokuChat messages={this.state.messages} />
-        </div>
+        if (this.state.gokus.length) {
+            return <div className="gokuapp">
+                <GokuTable gokurows={this.state.gokus} onGrowl={ this.onGrowl } />
+                <GokuChat messages={this.state.messages} />
+            </div>
+        } else {
+            return <p> Cargando ... </p>
+        }
     }
 }

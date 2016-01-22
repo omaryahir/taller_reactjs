@@ -19,7 +19,6 @@ class App extends React.Component
             <li><Link to="/user">User</Link></li>
             <li><Link to="/about">About</Link></li>
             </ul>
-            {this.props.children}
         </div>
     }
 }
@@ -29,14 +28,20 @@ class About extends React.Component
 {
     render () 
     {
-        return <p>Esto es about</p>
+        return <div><App /><br /><p>Esto es about</p></div>
     }
 }
 class User extends React.Component
 {
     render () 
     {
-        return <p>Esto es user</p>
+        return <div><App /><br /><p>Esto es user</p></div>
+    }
+
+    shouldComponentUpdate(newProps, newState)
+    {
+        if (this.props.user === newProps.user) return false;
+        return true;
     }
 }
 
@@ -47,5 +52,8 @@ const routes =  <Router>
                 </Router>
                    
 
-
 ReactDOM.render(routes, document.getElementById('container'));
+
+
+
+

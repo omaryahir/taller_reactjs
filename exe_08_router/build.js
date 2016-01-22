@@ -66,8 +66,7 @@ var App = function (_React$Component) {
                             'About'
                         )
                     )
-                ),
-                this.props.children
+                )
             );
         }
     }]);
@@ -88,9 +87,15 @@ var About = function (_React$Component2) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'p',
+                'div',
                 null,
-                'Esto es la página de about'
+                _react2.default.createElement(App, null),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Esto es about'
+                )
             );
         }
     }]);
@@ -111,10 +116,22 @@ var User = function (_React$Component3) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'p',
+                'div',
                 null,
-                'Esto es la página de user'
+                _react2.default.createElement(App, null),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Esto es user'
+                )
             );
+        }
+    }, {
+        key: 'shouldComponentUpdate',
+        value: function shouldComponentUpdate(newProps, newState) {
+            if (this.props.user === newProps.user) return false;
+            return true;
         }
     }]);
 
